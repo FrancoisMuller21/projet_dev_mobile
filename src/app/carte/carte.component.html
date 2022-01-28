@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row">
+        <h3>Nombre de card a afficher:</h3>
+        <input class="btn btn-outline-primary" type="submit" value="5" (click)="getCarwithLimit(5)">
+        <input class="btn btn-outline-primary" type="submit" value="15" (click)="getCarwithLimit(15)">
+        <input class="btn btn-outline-primary" type="submit" value="50" (click)="getCarwithLimit(50)">
+        <input class="btn btn-outline-primary" type="submit" value="ALL" (click)="getAllCar()">
+
+        <div class="row">
+            <h1>Cartes</h1>
+            <div class="card-columns">
+                <span *ngFor="let data of loadedCarWithLimit">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title">Voiture n°{{data.id}}</h3>
+                            <p class="card-text">
+                                Construite en {{data.year}} par {{data.brand}}, le model {{data.model}} est une voiture de première qualité. 
+                                Actuellement en vente au prix de {{data.price}}$ dans la region "{{data.state}}" au {{data.country}}.
+                            </p>
+                            <p class="card-text">
+                                Condition: <b>{{data.title_status}}</b> <br>
+                                Km parcourue: <b>{{data.mileage}}</b>
+                            </p>
+                        </div>
+                    </div>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

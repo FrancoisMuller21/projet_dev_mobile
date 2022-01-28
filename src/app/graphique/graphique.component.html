@@ -1,0 +1,26 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3" >        
+            <h2>Graphique des prix par marques</h2>
+                <select 
+                    [(ngModel)]="brandSelected"
+                    (ngModelChange)="onChange(brandSelected)">
+                    <option *ngFor="let d of CarsBrand"  id="{{d}}" >
+                        {{d}}
+                    </option>
+                </select>
+        </div>
+
+        <div #chart 
+            echarts [options]="chartOption" 
+            [theme]="theme" 
+            (chartInit)="onChartInit($event, brandSelected)" 
+            class="demo-chart">
+        </div>
+
+
+    </div>
+
+
+</div>

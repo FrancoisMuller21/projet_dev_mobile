@@ -1,0 +1,73 @@
+<div class="container">
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <label for="priceMinCar">Prix minimum:</label>
+                    <input
+                        [(ngModel)]="priceMinCar"
+                        type="text"
+                        class="form-control"
+                        id="priceMinCar"
+                        placeholder="prix minimum"
+                        name="priceMinCar"
+                    />
+                </div>
+                <div class="col-12 col-md-6">
+                    <label for="priceMaxCar">Prix maximum</label>
+                    <input
+                        [(ngModel)]="priceMaxCar"
+                        type="text"
+                        class="form-control"
+                        id="priceMaxCar"
+                        placeholder="prix maximum"
+                        name="priceMaxCar"
+                    />
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="brandCar">Marque de voiture</label>
+            <select
+                [(ngModel)]="brandCar"
+                class="form-control"
+                id="brandCar"
+                name="brandCar"
+            >
+                <option
+                    value=""
+                    disabled
+                    selected
+                >
+                Choisissez une marque de voiture
+                </option>
+                <option
+                    *ngFor="let brand of brands"
+                    [value]="brand"
+                >
+                {{brand}}
+                </option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Rechercher</button>
+    </form>
+</div>
+<div class="container">
+<div class="card-columns">
+    <span *ngFor="let car of cars">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title">Voiture n°{{car.index}}</h3>
+                <p class="card-text">
+                    Construite en {{car.year}} par {{car.brand}}, le model {{car.model}} est une voiture de première qualité. 
+                    Actuellement en vente au prix de {{car.price}}$ dans la region "{{car.state}}" au {{car.country}}.
+                </p>
+                <p class="card-text">
+                    Condition: <b>{{car.title_status}}</b> <br>
+                    Km parcourue: <b>{{car.mileage}}</b>
+                </p>
+            </div>
+        </div>
+    </span>
+</div>
+</div>
